@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "node esbuild.config.mjs --mode production",
-    "commit": "git-cz"
+    "prepare": "husky",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +28,16 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "esbuild-plugin-class-modules": "^2.1.9",
     "esbuild-plugin-time": "^1.0.0",
-    "git-cz": "^4.9.0",
+    "husky": "^9.1.4",
     "typescript": "^5.5.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
