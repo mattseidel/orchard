@@ -7,7 +7,9 @@
     "dev": "node esbuild.config.mjs",
     "build": "node esbuild.config.mjs --mode production",
     "prepare": "husky",
-    "commit": "cz"
+    "commit": "cz",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "keywords": [],
   "author": "",
@@ -27,17 +29,40 @@
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
     "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "esbuild-plugin-class-modules": "^2.1.9",
     "esbuild-plugin-time": "^1.0.0",
+    "eslint": "8.57.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-filename-rules": "^1.3.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^50.2.2",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prefer-arrow-functions": "^3.4.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-tsdoc": "^0.3.0",
     "husky": "^9.1.4",
-    "typescript": "^5.5.4"
+    "lint-staged": "^15.2.9",
+    "react-hooks": "^1.0.1",
+    "react-refresh": "^0.14.2",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "eslint --max-warnings 0 ."
+    ]
   }
 }
